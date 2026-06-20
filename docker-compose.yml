@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      FLASK_APP: app.py
+      FLASK_ENV: production
+      MONGO_URI: "mongodb+srv://Training:<password>@cluster0.ttgmlli.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+      DB_NAME: "nextvision"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./results:/app/results
+
